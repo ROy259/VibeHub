@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Create-Tweet
+{% endblock %}
+
+{% block content %}
+<h1>Create A tweet</h1>
+
+<form class='col-4' method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+<div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label"> Enter a text</label>
+    <textarea class="form-control" name="text" rows="3"></textarea>
+</div>
+    <div class="mb-3">
+        <label  class="form-label">Select an image</label>
+        <input type="file" class="form-control" name="photo" placeholder="name@example.com">
+    </div>
+    <button class='btn btn-success mb-2' type="Submit">Submit</button>
+    <br>
+    <a href="{% url 'tweet_list' %}" class="mt-2">Back to all tweets</a>
+</form>
+{% endblock %}

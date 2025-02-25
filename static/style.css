@@ -1,0 +1,25 @@
+/* Ensures all cards have the same height */
+.custom-card {
+    width: 18rem; /* Standard card width */
+    height: 400px; /* Fixed height for uniformity */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Fix image height & prevent distortion */
+.custom-img {
+    width: 100%; /* Full width of the card */
+    height: 200px; /* Set fixed height */
+    object-fit: cover; /* Ensures images don't stretch, but crop to fit */
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+/* Ensures the text and button are properly aligned */
+.card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

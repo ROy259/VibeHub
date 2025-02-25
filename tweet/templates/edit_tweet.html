@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block titel %}
+Edit-Tweet
+{% endblock %}
+
+{% block content %}
+<form class='col-4' method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+    <div class="mb-3">
+        <label class="form-label">Enter a text</label>
+        <textarea class="form-control" name="text" rows="3">{{ tweet.text }}</textarea>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Current Image</label>
+        {% if tweet.photo %}
+        <img src="{{ tweet.photo.url }}" alt="Tweet Image" class="img-thumbnail mb-2" width="200">
+        {% endif %}
+    </div>
+
+    <div class="mb-3">
+        <input type="file" class="form-control" name="photo">
+    </div>
+
+    <button class='btn btn-success mb-2' type="submit">Update</button>
+    <br>
+    <a href="{% url 'tweet_list' %}" class="mt-2">Back to all tweets</a>
+</form>
+
+{% endblock %}

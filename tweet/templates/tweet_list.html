@@ -13,7 +13,9 @@ Tweet-List
         {% for tweet in tweets %}
         <div class="col-md-4 col-sm-6"> 
             <div class="card custom-card"> 
+                {% if tweet.photo %}
                 <img src="{{ tweet.photo.url }}" class="card-img-top custom-img" alt="Tweet Image">
+            {% endif %}
                 <div class="card-body">
                     <h5 class="card-title">{{ tweet.user.username }}</h5>
                     <p class="card-text">{{ tweet.text }}.</p>
